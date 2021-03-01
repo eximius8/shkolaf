@@ -19,27 +19,27 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
   const headersData = [
     {
       label: "О школе",
-      href: "/about",
+      href: "/react/about",
     },
     {
       label: "Спортсменам",
-      href: "/sportsmen",
+      href: "/react/sportsmen",
     },
     {
       label: "Партнерам",
-      href: "/partners",
+      href: "/react/partners",
     },
     {
       label: "Новости",
-      href: "/news",
+      href: "/react/news",
     }  
   ];
   
   const useStyles = makeStyles(() => ({
     header: {
       backgroundColor: "#de2f1e",
-      paddingRight: "79px",
-      paddingLeft: "118px",
+      paddingRight: "0px",
+      paddingLeft: "79px",
       zIndex: 1039,
       "@media (max-width: 900px)": {
         paddingLeft: 0,        
@@ -49,7 +49,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
       fontFamily: "Work Sans, sans-serif",
       fontWeight: 600,
       color: "#FFFEFE",
-      textAlign: "left",
+      textAlign: "right",
     },
     menuButton: {
       fontFamily: "Open Sans, sans-serif",
@@ -59,7 +59,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
     },
     toolbar: {
       display: "flex",
-      justifyContent: "space-between",      
+      justifyContent: "space-between",
     },
     drawerContainer: {
       padding: "20px 30px",
@@ -187,12 +187,13 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
     return (   
       <header>
         <AppBar className={header}>
-          {mobileView ? displayMobile() : displayDesktop()}          
-        </AppBar>
-        <SettingsModal
+          {mobileView ? displayMobile() : displayDesktop()}  
+          <SettingsModal
                 show={vispanel}
                 onHide={() => setVisPanel(false)}
-          />
+          />        
+        </AppBar>
+        
                   
       </header>
     );

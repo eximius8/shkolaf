@@ -11,10 +11,11 @@ import Home from "./views/homepage";
 import NewsPage from "./views/newsitempage";
 import NewsMain from "./views/newspage";
 
+
 import { makeStyles } from '@material-ui/core/styles';
 
-import '@n3/react-vision-panel/dist/vision-panel.css';
-import "./App.css";
+
+
 
 
 const useStyles = makeStyles((theme) => ({ 
@@ -33,15 +34,15 @@ function App() {
       <Header />
       <main className={classes.mainContent}>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/react">
             <Home />
           </Route>
-          <Route path="/news/:id">
+          <Route path="/react/news/:id">
             <NewsPage />
           </Route>
-          <Route exact path="/news">
+          <Route exact path="/react/news">
             <NewsMain />
-          </Route>       
+          </Route>               
         </Switch>
       </main>    
       <Footer />     

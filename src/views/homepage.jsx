@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <React.Fragment> 
         <MainBanner />        
-        <NewsItems numitems={3} />  
+        <NewsItems numitems={6} />  
     </React.Fragment>
   );
 }

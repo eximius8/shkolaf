@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography, Grid, Button, Box} from "@material-ui/core";
+import { Container, Grid, Button, Box} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -18,7 +18,11 @@ const useStyles = makeStyles((theme) => ({
         "&:hover": {
             backgroundColor: '#0c57a6'
           }
-    }
+    },
+    logo: {
+      width: '100%',
+    },
+    
   }));
   
 
@@ -29,34 +33,29 @@ export default function MainBanner (){
     const classes = useStyles();
     return (
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
+          <Container maxWidth="md">
             <div>
                 <Grid container justify="center" align="center" >
-                    <Grid item xs={12} md={4} >
+                    <Grid item xs={12} >
                         <Box display={{ xs: 'none', sm: 'block' }}>
-                            <img className={classes.logo} alt="logo" height="200" src={process.env.PUBLIC_URL + "logo.png"}/>
+                            <img className={classes.logo} alt="logo" src="/react/longlogo.svg"/>
                         </Box>   
                         <Box display={{ xs: 'block', sm: 'none' }}>
-                            <img className={classes.logo} alt="logo" height="70" src={process.env.PUBLIC_URL + "logo.png"}/>
+                            <img className={classes.logo} alt="logo" src="/react/shortlogo.svg"/>
                         </Box>                        
-                    </Grid>
-                    <Grid item xs={12} md={8}>                        
-                        <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            Государственное автономное учреждение Волгоградской области ″Спортивная школа олимпийского резерва № 2″
-                        </Typography>
-                        <Typography align="center" color="textPrimary">
-                            Мы готовим чемпионов по направлениям "Спортивная гимнастика" и "Тхэквондо". 
-                            {/* В стенах школы подготовлено два серебрянных призера Олимпийских игр, два победителя Первенства Европы. 
-                            Более 100 выпускникам школы присвоенно звание Мастер спорта СССР и России. */}
-                        </Typography>
                     </Grid>
                 </Grid>                    
             </div>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" className={classes.mainCTA}>
-                    Стать чемпионом
+                  <Button 
+                    href="https://forms.yandex.ru/u/603d0d7c6c3baaca7fd5b959/" 
+                    target="_blank"
+                    variant="contained" 
+                    className={classes.mainCTA}
+                  >
+                    Записаться к нам
                   </Button>
                 </Grid>
                 <Grid item>
