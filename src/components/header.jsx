@@ -18,8 +18,8 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
   
   const headersData = [
     {
-      label: "О школе",
-      href: "/react/about",
+      label: "Главная",
+      href: "/react/",
     },
     {
       label: "Спортсменам",
@@ -30,8 +30,8 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
       href: "/react/partners",
     },
     {
-      label: "Новости",
-      href: "/react/news",
+      label: "Тренерский состав",
+      href: "/react/trainers",
     }  
   ];
   

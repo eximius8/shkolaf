@@ -10,7 +10,7 @@ import { Route, Switch } from "react-router";
 import Home from "./views/homepage";
 import NewsPage from "./views/newsitempage";
 import NewsMain from "./views/newspage";
-
+import TrainerList from "./views/trainerspage";
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -42,6 +42,9 @@ function App() {
           </Route>
           <Route exact path="/react/news">
             <NewsMain />
+          </Route>
+          <Route exact path="/react/trainers">
+            <TrainerList />
           </Route>               
         </Switch>
       </main>    
