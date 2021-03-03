@@ -1,93 +1,76 @@
 import React, { useEffect, useState } from "react";
-import { Container, 
-  Grid,
-  Button,  
-  Card,
-  CardContent,
-  Typography, 
-  CardActionArea,
-  CardMedia,
-  CardActions} from "@material-ui/core";
+import { Container, CircularProgress } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
+import TabsWithElems from "../components/legal";
 
+import TrainerList from "../components/people/trainerlist";
 
 
 const useStyles = makeStyles((theme) => ({ 
     heroContent: {      
-      padding: theme.spacing(10, 0, 6),      
+      padding: theme.spacing(10, 0, 0),      
     },
-    root: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 350,
-    },
+    divImg: {
+      paddingTop: theme.spacing(1),
+      display: "inline-block",
+      overflowY: "hidden",     
+      width: "100%",
+  },   
   })); 
 
 
 
 
-
-function TrainerCard({trainer}){
+export default function Employees(){
   const classes = useStyles();
-
-  return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={trainer.source_url}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {trainer.title.rendered}
-          </Typography>
-          <div dangerouslySetInnerHTML={{ __html: trainer.caption.rendered}} />
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
-  );
-}
-
-
-export default function TrainerList (){
-
-  const [trainers, setTrainers] = useState([]);
+  const [tabs, setTabs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [title, setTitle] = useState("");
+  const [bgimage, setBgimage] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://sport-school-2.ru/wp-json/wp/v2/media?parent=975`)
-    .then((res) => {
-      console.log(res.data);
-      setTrainers(res.data);
+    let tabs = [];
+    let i =0;
+    axios.get(`/pages/975`)
+    .then((res) => {      
+      setTitle(res.data.title.rendered)
+    })
+    axios.get(`/pages?parent=975`)
+    .then((res) => {      
+      res.data.forEach(tabel => {
+        tabs.push({ 
+        content: <TrainerList pageId={tabel.id} />,
+        label: tabel.title.rendered,
+        num: i
+        });
+        i++;
+      });
+      setTabs(tabs);
+      setLoading(false); 
+    })
+    axios.get(`/media?parent=975`)
+    .then((res) => {      
+      setBgimage(res.data[0]);
     })
   }, [])
-    
-    const classes = useStyles();
-    return (
-        <div className={classes.heroContent}>
+
+
+  return(
+    <>
+      {bgimage && 
+                <div className={classes.divImg}> 
+                    <img width="100%" alt={bgimage.alt} src={bgimage.source_url} />
+                </div>
+        }  
+      <div >        
           <Container maxWidth="md">
-            <h2>Тренерский состав</h2>            
-            <Grid container spacing={3}>
-              {
-                trainers.map((trainer) => 
-                  <Grid key={trainer.id} item sm={4} xs={12}>
-                    <TrainerCard trainer={trainer} />
-                  </Grid>
-                )
-              }              
-            </Grid>
+            <h2>{title}</h2>       
+            <TabsWithElems tabs={tabs} />
+            {loading && <CircularProgress />}
           
           </Container>
-        </div>
-    )
+      </div>
+    </>
+  )
 }

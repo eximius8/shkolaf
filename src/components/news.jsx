@@ -44,7 +44,7 @@ const NewsCard = ({card}) => {
 
  
   useEffect(() => {
-    axios.get(`http://www.sport-school-2.ru/wp-json/wp/v2/media?parent=${card.id}`)
+    axios.get(`/media?parent=${card.id}`)
     .then((res) => {
       if (res.data.length > 0){
         if (res.data[0].media_type === "image"){
@@ -89,7 +89,7 @@ function NewsItems({numitems}){
 
 
     useEffect(() => {
-      axios.get(`http://www.sport-school-2.ru/wp-json/wp/v2/posts?per_page=${numitems}&offset=${offset}`)
+      axios.get(`/posts?per_page=${numitems}&offset=${offset}`)
       .then((res) => {   
         const newposts = res.data;
         setPosts(oldPosts => [...oldPosts, ...newposts])    

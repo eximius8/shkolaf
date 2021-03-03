@@ -10,7 +10,8 @@ import { Route, Switch } from "react-router";
 import Home from "./views/homepage";
 import NewsPage from "./views/newsitempage";
 import NewsMain from "./views/newspage";
-import TrainerList from "./views/trainerspage";
+import Employees from "./views/trainerspage";
+import AboutPage from "./views/aboutpage";
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -44,7 +45,10 @@ function App() {
             <NewsMain />
           </Route>
           <Route exact path="/react/trainers">
-            <TrainerList />
+            <Employees />
+          </Route> 
+          <Route exact path="/react/about">
+            <AboutPage />
           </Route>               
         </Switch>
       </main>    

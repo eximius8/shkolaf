@@ -11,7 +11,7 @@ export default function NewsPage() {
 
 
     useEffect(() => {
-        axios.get(`http://www.sport-school-2.ru/wp-json/wp/v2/posts/${id}`)
+        axios.get(`/posts/${id}`)
         .then((res) => {   
           setPost(res.data);
           console.log(res.data);

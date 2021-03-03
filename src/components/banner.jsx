@@ -21,11 +21,8 @@ const useStyles = makeStyles((theme) => ({
     },
     logo: {
       width: '100%',
-    },
-    
-  }));
-  
-
+    },    
+  })); 
 
 
 export default function MainBanner (){

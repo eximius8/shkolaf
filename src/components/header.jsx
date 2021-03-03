@@ -32,7 +32,11 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
     {
       label: "Тренерский состав",
       href: "/react/trainers",
-    }  
+    },
+    {
+      label: "Об организации",
+      href: "/react/about",
+    } 
   ];
   
   const useStyles = makeStyles(() => ({

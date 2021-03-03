@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import axios from "axios";
 
 import { StylesProvider } from "@material-ui/core/styles";
 import './App.css';
@@ -8,6 +8,8 @@ import '@n3/react-vision-panel/dist/vision-panel.css';
 import App from './App';
 
 import { BrowserRouter as Router } from "react-router-dom";
+
+axios.defaults.baseURL = 'http://sport-school-2.ru/wp-json/wp/v2/';
 
 ReactDOM.render(
   <React.StrictMode>

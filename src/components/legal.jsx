@@ -3,10 +3,8 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import {AppBar,
     Container,
     Tabs, 
-    Tab, 
-    Typography, 
+    Tab,     
     Box} from '@material-ui/core';
-import NewsItems from "./news";
 
 
 interface TabPanelProps {
@@ -28,7 +26,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box px={1}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -46,14 +44,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
     width: '100%',
-    backgroundColor: theme.palette.background.paper,
+   
   },
   appbar: {
     alignItems: 'center',
   },
 }));
 
-export default function LegalInfo() {
+export default function TabsWithElems({tabs}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -74,24 +72,17 @@ export default function LegalInfo() {
                     scrollButtons="auto"
                     aria-label="scrollable auto tabs example"
                     >
-                    <Tab label="Новости" {...a11yProps(0)} />
-                    <Tab label="Наша гордость" {...a11yProps(1)} />
-                    <Tab label="Item Three" {...a11yProps(2)} />
-                    <Tab label="Item Three" {...a11yProps(3)} />
+                      {tabs.map((tabb) => 
+                        <Tab key={tabb.num} label={tabb.label} {...a11yProps(tabb.num)} />
+                      )}                 
+                   
                 </Tabs>
             </AppBar>
-            <TabPanel value={value} index={0}>
-                <NewsItems numitems={6} />
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                Наша гордость
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                Item Three
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-                Item Three
-            </TabPanel>
+              {tabs.map((tabb) => 
+                <TabPanel key={tabb.num} value={value} index={tabb.num}>
+                    {tabb.content}
+                </TabPanel>                        
+              )}
         </div>
     </Container>
   );
