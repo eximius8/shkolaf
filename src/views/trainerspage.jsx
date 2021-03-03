@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 345,
     },
     media: {
-      height: 140,
+      height: 350,
     },
   })); 
 
@@ -44,7 +44,7 @@ function TrainerCard({trainer}){
           <Typography gutterBottom variant="h5" component="h2">
             {trainer.title.rendered}
           </Typography>
-          <div angerouslySetInnerHTML={{ __html: trainer.description.rendered}} />
+          <div dangerouslySetInnerHTML={{ __html: trainer.caption.rendered}} />
         </CardContent>
       </CardActionArea>
       <CardActions>
@@ -80,7 +80,7 @@ export default function TrainerList (){
             <Grid container spacing={3}>
               {
                 trainers.map((trainer) => 
-                  <Grid key={trainer.id} item xs={4}>
+                  <Grid key={trainer.id} item sm={4} xs={12}>
                     <TrainerCard trainer={trainer} />
                   </Grid>
                 )
