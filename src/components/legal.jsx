@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import {AppBar,
     Container,
@@ -43,17 +43,15 @@ function a11yProps(index: any) {
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    width: '100%',
-   
-  },
-  appbar: {
-    alignItems: 'center',
-  },
+    width: '100%',   
+  }  
 }));
 
 export default function TabsWithElems({tabs}) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
+
+  //console.log(tabs.length);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -62,7 +60,7 @@ export default function TabsWithElems({tabs}) {
   return (
     <Container maxWidth="md">
         <div className={classes.root}>
-            <AppBar position="static" color="default" className={classes.appbar}>
+            <AppBar position="static" color="default" >
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -70,16 +68,15 @@ export default function TabsWithElems({tabs}) {
                     textColor="primary"
                     variant="scrollable"
                     scrollButtons="auto"
-                    aria-label="scrollable auto tabs example"
-                    >
-                      {tabs.map((tabb) => 
-                        <Tab key={tabb.num} label={tabb.label} {...a11yProps(tabb.num)} />
-                      )}                 
-                   
+                    centered={true}
+                >
+                    {tabs.map((tabb) => 
+                      <Tab key={tabb.num} label={tabb.label} {...a11yProps(tabb.num)} />
+                    )}                    
                 </Tabs>
             </AppBar>
               {tabs.map((tabb) => 
-                <TabPanel key={tabb.num} value={value} index={tabb.num}>
+                <TabPanel key={tabb.num} value={value} index={tabb.num}>  
                     {tabb.content}
                 </TabPanel>                        
               )}

@@ -16,7 +16,20 @@ const useStyles = makeStyles((theme) => ({
       display: "inline-block",
       overflowY: "hidden",     
       width: "100%",
-  },   
+    },
+    vidcontainer: {
+      position: 'relative',
+       width: '100%',
+       height: 0,
+       paddingBottom: '56.25%'
+   },
+   video: {
+       position: 'absolute',
+       top: 0,
+       left: 0,
+       width: '100%',
+       height: '100%'
+   }   
   })); 
 
 
@@ -49,17 +62,32 @@ export default function AboutPage(){
 
 
   return(
-      <div className={classes.heroContent} >        
-          <Container maxWidth="md">
-              <Box p={2} mb={2} component={Paper}>
-                {postdata && <div dangerouslySetInnerHTML={{ __html: postdata.content.rendered}} />}
-              </Box>
+    <React.Fragment> 
+      <div className={classes.heroContent} >
+               
+        <Container maxWidth="md">
+            
+            <Box p={2} mb={2} component={Paper}>
+              <div className={classes.vidcontainer}>
+                <iframe 
+                  className={classes.video}
+                  src="https://vk.com/video_ext.php?oid=-22957464&id=456239121&hash=c70ae86c37f111f9&hd=2" 
+                  
+                  frameborder="0" 
+                  allowfullscreen
+                  title="videoaboutus"
+                >
+                </iframe>
+              </div>
               
-            {/* <h2>{title}</h2>     */}   
-            <TabsWithElems tabs={tabs} />
-           
-          
-          </Container>
-      </div>  
+              {postdata && <div dangerouslySetInnerHTML={{ __html: postdata.content.rendered}} />}
+            </Box>
+        </Container>
+      </div> 
+
+      
+      <TabsWithElems tabs={tabs} />      
+               
+    </React.Fragment> 
   )
 }

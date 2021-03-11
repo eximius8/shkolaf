@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, CircularProgress } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
 import TabsWithElems from "../components/legal";
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Employees(){
   const classes = useStyles();
   const [tabs, setTabs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  
   const [title, setTitle] = useState("");
   const [bgimage, setBgimage] = useState(null);
 
@@ -46,8 +46,7 @@ export default function Employees(){
         });
         i++;
       });
-      setTabs(tabs);
-      setLoading(false); 
+      setTabs(tabs);      
     })
     axios.get(`/media?parent=975`)
     .then((res) => {      
@@ -67,8 +66,6 @@ export default function Employees(){
           <Container maxWidth="md">
             <h2>{title}</h2>       
             <TabsWithElems tabs={tabs} />
-            {loading && <CircularProgress />}
-          
           </Container>
       </div>
     </>
