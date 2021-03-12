@@ -11,7 +11,7 @@ export default function TrainerList({pageId}){
     useEffect(() => {
       axios.get(`/media?parent=${pageId}&per_page=100`)
       .then((res) => {
-        let sorted = res.data.sort((a, b) => a.title.rendered > b.title.rendered ? 1 : -1)        
+        let sorted = res.data.sort((a, b) => a.title.rendered > b.title.rendered ? 1 : -1)
         setTrainers(sorted);
       })
     }, [pageId])

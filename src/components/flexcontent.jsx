@@ -9,7 +9,7 @@ export default function FlexContent({pageId}){
     useEffect(() => {      
       axios.get(`/pages/${pageId}`)
       .then((res) => {      
-        console.log(res.data);
+       // console.log(res.data);
         setPostData(res.data);
       })   
   

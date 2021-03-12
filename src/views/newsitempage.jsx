@@ -14,7 +14,7 @@ export default function NewsPage() {
         axios.get(`/posts/${id}`)
         .then((res) => {   
           setPost(res.data);
-          console.log(res.data);
+          // console.log(res.data);
         })
       },[id])
 

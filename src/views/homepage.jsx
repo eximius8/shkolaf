@@ -8,6 +8,7 @@ import NewsItems from "../components/news";
 import TabsWithElems from "../components/legal";
 import axios from "axios";
 import FlexContent from "../components/flexcontent";
+import WinnerList from "../components/people/winnercard";
 
 
 
@@ -38,8 +39,8 @@ function Video60(){
         <iframe 
           className={classes.video}
           src="https://vk.com/video_ext.php?oid=-22957464&id=456239121&hash=c70ae86c37f111f9&hd=2"         
-          frameborder="0" 
-          allowfullscreen
+          frameBorder="0" 
+          allowFullScreen
           title="videoaboutus"
         >
         </iframe>
@@ -55,7 +56,7 @@ export default function Home() {
   const [tabs, setTabs] = useState([]);
 
   useEffect(() => {
-    let i = 2;
+    let i = 3;
     let tabs = [{
       content: <NewsItems numitems={6} />,
       num: 0,
@@ -65,6 +66,11 @@ export default function Home() {
       content: <Video60 />,
       num: 1,
       label: "О нас" 
+    },
+    {
+      content: <WinnerList />,
+      num: 2,
+      label: "Наша гордость" 
     }
     ];
     axios.get(`/pages?parent=2044`)

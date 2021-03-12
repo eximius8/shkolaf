@@ -67,8 +67,7 @@ export default function TabsWithElems({tabs}) {
                     indicatorColor="primary"
                     textColor="primary"
                     variant="scrollable"
-                    scrollButtons="auto"
-                    centered={true}
+                    scrollButtons="auto"                   
                 >
                     {tabs.map((tabb) => 
                       <Tab key={tabb.num} label={tabb.label} {...a11yProps(tabb.num)} />

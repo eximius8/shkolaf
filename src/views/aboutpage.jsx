@@ -67,20 +67,18 @@ export default function AboutPage(){
                
         <Container maxWidth="md">
             
-            <Box p={2} mb={2} component={Paper}>
+            <Box p={0} mb={2} component={Paper}>
               <div className={classes.vidcontainer}>
                 <iframe 
                   className={classes.video}
-                  src="https://vk.com/video_ext.php?oid=-22957464&id=456239121&hash=c70ae86c37f111f9&hd=2" 
-                  
-                  frameborder="0" 
-                  allowfullscreen
+                  src="https://vk.com/video_ext.php?oid=-22957464&id=456239121&hash=c70ae86c37f111f9&hd=2"                   
+                  frameBorder="0" 
+                  allowFullScreen
                   title="videoaboutus"
                 >
                 </iframe>
-              </div>
-              
-              {postdata && <div dangerouslySetInnerHTML={{ __html: postdata.content.rendered}} />}
+              </div>              
+              {false && postdata && <div dangerouslySetInnerHTML={{ __html: postdata.content.rendered}} />}
             </Box>
         </Container>
       </div> 
