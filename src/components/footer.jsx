@@ -1,15 +1,33 @@
 import React from "react";
-import { Typography, Link } from "@material-ui/core";
+import { Typography, Link, IconButton } from "@material-ui/core";
 
 import { makeStyles } from '@material-ui/core/styles';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import FacebookIcon from '@material-ui/icons/Facebook';
 
+
+
+const socialIconLinks = [
+  {
+    ico: <InstagramIcon />,
+    link: "https://www.instagram.com/shkolaor"
+  },
+  {
+    ico: <faVk  />,
+    link: "https://www.instagram.com/shkolaor"
+  },
+  {
+    ico: <FacebookIcon />,
+    link: "https://facebook.com/groups/shkolaor"
+  },
+]
 
 
 function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {'© '}
-        <Link color="inherit" href="https://material-ui.com/">
+        <Link color="inherit" href="#">
           sport-school-2.ru
         </Link>{' '}
         {new Date().getFullYear()}
@@ -38,12 +56,20 @@ export default function Footer (){
     return (       
     <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-            ГАУ СШОР № 2
+            ГАУ ВО "СШОР № 2"    
         </Typography>
+        <Typography align="center">
+            {socialIconLinks.map(({ico, link}) =>
+              <IconButton href={link} target="_blank">
+                {ico}
+              </IconButton> 
+            )}  
+        </Typography>        
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-            404130, город Волжский, ул. Комсомольская 20
+            <Link target="_blank" href="https://yandex.ru/maps/-/CCUQrBSFGD">404130, Волжский, Комсомольская 20</Link>
         </Typography>
         <Copyright />
+       
     </footer>   
     )
 }

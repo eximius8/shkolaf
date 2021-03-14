@@ -17,6 +17,8 @@ import {
   defaultGetSettings,
 } from '@n3/react-vision-panel';
 
+
+
 const settings = defaultGetSettings();
 
 
@@ -41,7 +43,7 @@ const settings = defaultGetSettings();
     {
       label: "Об организации",
       href: "/react/about",
-    } 
+    }
   ];
   
   const useStyles = makeStyles(() => ({
@@ -158,7 +160,7 @@ const settings = defaultGetSettings();
       );
     };
   
-    const getDrawerChoices = () => {
+    const getDrawerChoices = () => {      
       return headersData.map(({ label, href }) => {
         return (
           <Link
