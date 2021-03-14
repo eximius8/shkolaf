@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Paper, Box} from "@material-ui/core";
+import {Paper, Box, Typography} from "@material-ui/core";
 import axios from "axios";
 
 
@@ -18,7 +18,7 @@ export default function FlexContent({pageId}){
   
     return(        
         <Box my={2} component={Paper} p={2}>
-            {postdata && <div dangerouslySetInnerHTML={{ __html: postdata.content.rendered}} />}
+            {postdata && <Typography component='div' dangerouslySetInnerHTML={{ __html: postdata.content.rendered}} />}
         </Box>      
     )
   }

@@ -11,9 +11,6 @@ import FlexContent from "../components/flexcontent";
 import WinnerList from "../components/people/winnercard";
 
 
-
-
-
 const useStyles = makeStyles((theme) => ({ 
   vidcontainer: {
     position: 'relative',
@@ -66,13 +63,15 @@ export default function Home() {
       content: <Video60 />,
       num: 1,
       label: "О нас" 
-    },
-    {
-      content: <WinnerList />,
-      num: 2,
-      label: "Наша гордость" 
-    }
-    ];
+    }];
+    axios.get('/pages/208')
+    .then((res) =>{
+      tabs.push({
+        content: <WinnerList content={res.data.content.rendered} />,
+        num: 2,
+        label: res.data.title.rendered
+      })
+    })
     axios.get(`/pages?parent=2044`)
     .then((res) => {      
       res.data.forEach(tabel => {        

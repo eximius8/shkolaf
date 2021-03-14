@@ -12,6 +12,7 @@ import NewsPage from "./views/newsitempage";
 import NewsMain from "./views/newspage";
 import Employees from "./views/trainerspage";
 import AboutPage from "./views/aboutpage";
+import ForSportsmenPage from "./views/sportsmenpage";
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -44,12 +45,15 @@ function App() {
           <Route exact path="/react/news">
             <NewsMain />
           </Route>
+          <Route exact path="/react/sportsmen">
+            <ForSportsmenPage />
+          </Route>
           <Route exact path="/react/trainers">
             <Employees />
           </Route> 
           <Route exact path="/react/about">
             <AboutPage />
-          </Route>               
+          </Route>
         </Switch>
       </main>    
       <Footer />     

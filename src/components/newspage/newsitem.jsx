@@ -2,9 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {Container,  
     Typography, Box, Paper } from '@material-ui/core/';
-//import axios from 'axios';
-
-
 
 
 const useStyles = makeStyles((theme) => ({ 
@@ -29,27 +26,6 @@ const useStyles = makeStyles((theme) => ({
 function NewsItem({post}){
 
     const classes = useStyles();
-    //const [image, setImage] = useState(null);
-
-
-    
-
-    /* useEffect(() => {
-        axios.get(`media?parent=${post.id}`)
-        .then((res) => {
-          if (res.data.length > 0){
-            if (res.data[0].media_type === "image"){
-              setImage(res.data[0].source_url)
-            }
-          }
-        })
-      },[post]);  */
-    
-   /*  useEffect(() => {
-      if (settings.images === "off"){
-        setImage(null)
-      }
-    }, [settings]) */
 
     return (
         <>          
@@ -61,7 +37,7 @@ function NewsItem({post}){
                         component="h1" 
                         dangerouslySetInnerHTML={{ __html: post.title.rendered}} 
                     />
-                    <div dangerouslySetInnerHTML={{ __html: post.content.rendered}} />
+                    <Typography component='div' dangerouslySetInnerHTML={{ __html: post.content.rendered}} />
                     <Typography align="right">
                         <i>Опубликовано: {(new Date(post.date)).toLocaleDateString()}</i>
                     </Typography>

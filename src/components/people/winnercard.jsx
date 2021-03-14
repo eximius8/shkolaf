@@ -43,7 +43,7 @@ function Winner({winner}){
 
 
 
-export default function WinnerList(){
+export default function WinnerList({content}){
     
     const [winners, setWinners] = useState([]);
 
@@ -68,9 +68,7 @@ export default function WinnerList(){
                 })}
             </Grid>
             <Box component={Paper} mt={2} p={1}>
-                <Typography>
-                    Более 100 выпускникам школы  присвоенно  звание Мастер спорта  СССР и России.
-                </Typography>
+                <Typography component="div" dangerouslySetInnerHTML={{ __html: content}}  />                  
             </Box>            
         </Box>
     )

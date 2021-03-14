@@ -4,6 +4,9 @@ import { Typography, Link, IconButton } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
+// npm install --save-dev @iconify/react @iconify-icons/mdi
+import { Icon } from '@iconify/react';
+import vkIcon from '@iconify-icons/mdi/vk';
 
 
 
@@ -13,8 +16,8 @@ const socialIconLinks = [
     link: "https://www.instagram.com/shkolaor"
   },
   {
-    ico: <faVk  />,
-    link: "https://www.instagram.com/shkolaor"
+    ico: <Icon icon={vkIcon} />,
+    link: "https://vk.com/shkolaor"
   },
   {
     ico: <FacebookIcon />,
@@ -60,7 +63,7 @@ export default function Footer (){
         </Typography>
         <Typography align="center">
             {socialIconLinks.map(({ico, link}) =>
-              <IconButton href={link} target="_blank">
+              <IconButton key={link} href={link} target="_blank">
                 {ico}
               </IconButton> 
             )}  

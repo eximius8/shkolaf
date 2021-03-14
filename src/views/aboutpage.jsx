@@ -56,7 +56,7 @@ export default function AboutPage(){
         });
         i++;
       });
-      setTabs(tabs);      
+      setTabs(tabs);
     })
   }, [])
 
