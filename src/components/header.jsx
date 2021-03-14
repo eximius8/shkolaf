@@ -13,6 +13,11 @@ import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { SettingsModal } from '@n3/react-vision-panel';
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import { 
+  defaultGetSettings,
+} from '@n3/react-vision-panel';
+
+const settings = defaultGetSettings();
 
 
   
@@ -86,6 +91,8 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
   
     useEffect(() => {
       const setResponsiveness = () => {
+        console.log(settings);
+       
         return window.innerWidth < 900
           ? setState((prevState) => ({ ...prevState, mobileView: true }))
           : setState((prevState) => ({ ...prevState, mobileView: false }));

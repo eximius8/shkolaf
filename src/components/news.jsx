@@ -97,8 +97,7 @@ function NewsItems({numitems}){
     },[offset, setPosts, numitems])
 
     return (
-        <Container className={classes.cardGrid} maxWidth="md" >
-          <Typography variant="h4" component="h1">Новости</Typography>
+        <Container className={classes.cardGrid} maxWidth="md" >         
             <Grid container spacing={4}>
               {posts.map((card) => (              
                   <NewsCard card={card} key={card.id} />             

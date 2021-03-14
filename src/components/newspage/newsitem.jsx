@@ -1,8 +1,9 @@
-import React, {useEffect, useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {Container,  
     Typography, Box, Paper } from '@material-ui/core/';
-import axios from 'axios';
+//import axios from 'axios';
+
 
 
 
@@ -28,10 +29,13 @@ const useStyles = makeStyles((theme) => ({
 function NewsItem({post}){
 
     const classes = useStyles();
-    const [image, setImage] = useState(null);
+    //const [image, setImage] = useState(null);
 
-    useEffect(() => {
-        axios.get(`http://www.sport-school-2.ru/wp-json/wp/v2/media?parent=${post.id}`)
+
+    
+
+    /* useEffect(() => {
+        axios.get(`media?parent=${post.id}`)
         .then((res) => {
           if (res.data.length > 0){
             if (res.data[0].media_type === "image"){
@@ -39,17 +43,17 @@ function NewsItem({post}){
             }
           }
         })
-      },[post]); 
+      },[post]);  */
     
+   /*  useEffect(() => {
+      if (settings.images === "off"){
+        setImage(null)
+      }
+    }, [settings]) */
 
     return (
-        <>            
-            {image && 
-                <div className={classes.divImg}> 
-                    <img width="100%" alt={post.id} src={image} />
-                </div>
-            }            
-            <Container className={image ? classes.itemGridImg : classes.itemGrid} maxWidth="md" >
+        <>          
+            <Container className={classes.itemGrid} maxWidth="md" >
                 
                 <Box p={3} component={Paper}>
                     <Typography 

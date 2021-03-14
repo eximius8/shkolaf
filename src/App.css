@@ -14,7 +14,19 @@ code {
 
 
 .n3__wcag__kerning_large  * {
+  letter-spacing: 0.15em !important;
+}
+
+.n3__wcag__kerning_average  * {
+  letter-spacing: 0.1em !important;
+}
+
+.n3__wcag__fontsize_large  * {
   font-size: large !important;
+}
+
+.n3__wcag__fontsize_average  * {
+  font-size: medium !important;
 }
 
 .n3__wcag__images_off img {
