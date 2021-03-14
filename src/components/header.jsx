@@ -26,23 +26,23 @@ const settings = defaultGetSettings();
   const headersData = [
     {
       label: "Главная",
-      href: "/react/",
+      href: "/",
     },
     {
       label: "Спортсменам",
-      href: "/react/sportsmen",
+      href: "/sportsmen",
     },
     {
       label: "Партнерам",
-      href: "/react/partners",
+      href: "/partners",
     },
     {
       label: "Тренерский состав",
-      href: "/react/trainers",
+      href: "/trainers",
     },
     {
       label: "Об организации",
-      href: "/react/about",
+      href: "/about",
     }
   ];
   

@@ -29,6 +29,8 @@ export default function ForSportsmenPage(){
   const [tabs, setTabs] = useState([]);
   
   const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
   const [bgimage, setBgimage] = useState(null);
 
   useEffect(() => {
@@ -36,7 +38,8 @@ export default function ForSportsmenPage(){
     let i =0;
     axios.get(`/pages/2180`)
     .then((res) => {      
-      setTitle(res.data.title.rendered)
+      setTitle(res.data.title.rendered);
+      setContent(res.data.content.rendered);
     })
     axios.get(`/pages?parent=2180`)
     .then((res) => {      
@@ -68,6 +71,7 @@ export default function ForSportsmenPage(){
           <Container maxWidth="md" className={bgimage ? classes.withImage : classes.noImage}>
             <Box component={Paper} mx={3} mb={2}  p={2}>
                 <Typography variant="h4">{title}</Typography>
+                <Typography component="div" dangerouslySetInnerHTML={{ __html: content}} />
             </Box>
             <TabsWithElems tabs={tabs} />
           </Container>

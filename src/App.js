@@ -36,22 +36,22 @@ function App() {
       <Header />
       <main className={classes.mainContent}>
         <Switch>
-          <Route exact path="/react">
+          <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/react/news/:id">
+          <Route path="/news/:id">
             <NewsPage />
           </Route>
-          <Route exact path="/react/news">
+          <Route exact path="/news">
             <NewsMain />
           </Route>
-          <Route exact path="/react/sportsmen">
+          <Route exact path="/sportsmen">
             <ForSportsmenPage />
           </Route>
-          <Route exact path="/react/trainers">
+          <Route exact path="/trainers">
             <Employees />
           </Route> 
-          <Route exact path="/react/about">
+          <Route exact path="/about">
             <AboutPage />
           </Route>
         </Switch>

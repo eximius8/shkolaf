@@ -35,10 +35,10 @@ export default function MainBanner (){
                 <Grid container justify="center" align="center" >
                     <Grid item xs={12} >
                         <Box display={{ xs: 'none', sm: 'block' }}>
-                            <img className={classes.logo} alt="logo" src="/react/longlogo.svg"/>
+                            <img className={classes.logo} alt="logo" src="/longlogo.svg"/>
                         </Box>   
                         <Box display={{ xs: 'block', sm: 'none' }}>
-                            <img className={classes.logo} alt="logo" src="/react/shortlogo.svg"/>
+                            <img className={classes.logo} alt="logo" src="/shortlogo.svg"/>
                         </Box>                        
                     </Grid>
                 </Grid>                    

@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NewsCard = ({card}) => {   
   const classes = useStyles();
-  const [image, setImage] = useState("/react/shortlogo.svg");
+  const [image, setImage] = useState("/shortlogo.svg");
   const history = useHistory();
 
  
@@ -59,7 +59,7 @@ const NewsCard = ({card}) => {
     <Grid item xs={12} sm={6} md={4}>
       
         <Card className={classes.card}>
-          <CardActionArea onClick={() => history.push(`/react/news/${card.id}`)}>
+          <CardActionArea onClick={() => history.push(`/news/${card.id}`)}>
             <CardMedia
               className={classes.cardMedia}
               image={image}

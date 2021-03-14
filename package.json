@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "http://sport-school-2.ru/react/",
+  "homepage": "http://api.sport-school-2.ru/",
   "eslintConfig": {
     "extends": [
       "react-app",
